@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+{% block title %}Edit account{% endblock %}
+
+{% block content %}
+<div class = "bradcam_area breadcam_bg overlay2">
+   <form method = "POST" action = "." class = "white-popup-block" enctype="multipart/form-data">
+      {% csrf_token %}
+
+      <div class = "popup_box ">
+         <div class = "popup_inner">
+            <div class = "logo text-center">
+               <a href = "#">
+                  <img src = "/static/img/form-logo.png" alt = "">
+               </a>
+            </div>
+
+            <h3>Edit your account</h3>
+            <h4>You can edit your account using the following form:</h4>
+
+            <div class = "row">
+               <div class = "col-xl-12 col-md-12">
+                  {{ user_form.as_p }}
+                  {{ profile_form.as_p }}
+               </div>
+
+               <div class = "col-xl-12">
+                  <button type = "submit" class = "boxed_btn_green">Save changes</button>
+               </div>
+
+
+            </div>
+
+         </div>
+      </div>
+
+   </form>
+</div>
+
+{% endblock %}

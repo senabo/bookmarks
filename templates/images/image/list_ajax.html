@@ -1,0 +1,22 @@
+{% for image in images %}
+   <div class="whole-wrap">
+   <div class="container box_1170">
+   <div class="section-top-border">
+<div class="row gallery-item">
+<div class="col-md-4">
+<a href="{{ image.get_absolute_url }}">
+{#{% thumbnail image.image "300x300" crop="100%" as im %}#}
+<a href="{{ image.get_absolute_url }}" class="img-pop-up">
+<img src="{{ image.url }}" class="single-gallery-image">
+</a>
+{#{% endthumbnail %}#}
+</a>
+<div class="info">
+<a href="{{ image.get_absolute_url }}" class="title">{{ image.title }}</a>
+</div>
+   </div>
+</div>
+</div>
+   </div>
+   </div>
+{% endfor %}

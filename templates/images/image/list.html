@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% block title %}Images bookmarked{% endblock %}
+{% block content %}
+   <div class = "bradcam_area breadcam_bg overlay2">
+      <h3>Images bookmarked</h3>
+   </div>
+
+<div id="image-list">
+{% include "images/image/list_ajax.html" %}
+</div>
+
+{% endblock %}

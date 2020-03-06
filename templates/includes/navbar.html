@@ -1,0 +1,44 @@
+<div class = "header-area ">
+   <div id = "sticky-header" class = "main-header-area">
+      <div class = "container-fluid p-0">
+         <div class = "row align-items-center no-gutters">
+            <div class = "col-xl-2 col-lg-2">
+               <div class = "logo-img">
+                  <a href = "{% url 'dashboard' %}">
+                     <img src = "/static/img/logo.png" alt = "">
+                  </a>
+               </div>
+            </div>
+            <div class = "col-xl-7 col-lg-7">
+               <div class = "main-menu  d-none d-lg-block">
+                  <nav>
+                     <ul id = "navigation">
+                        <li><a href = "{% url 'dashboard' %}" id = "dashboard" {% if section == "dashboard" %}
+                               class = "active" {% endif %}>My Dashboard</a></li>
+                        <li><a href = '{% url 'images:list' %}' {% if section == "images" %} class = "active" {% endif %}>Images</a></li>
+                        <li><a href = "{% url 'user_list' %}"{% if section == "people" %} class = "active" {% endif %}>People</a></li>
+                        <li><a href = "http://127.0.0.1:8000/account/password_change/" id = 'pass_change'
+                              {% if section == "" %} class = "active" {% endif %}>Change pass</a></li>
+                        <li><a href = "http://127.0.0.1:8000/admin/">Admin</a></li>
+
+                     </ul>
+                  </nav>
+               </div>
+            </div>
+            {#               <div class = "col-xl-3 col-lg-3 d-none d-lg-block">#}
+            <div class = "log_chat_area d-flex align-items-center  ">
+               <a href = '{% url 'logout' %}' class = "login ">
+                  <i class = "flaticon-user"></i>
+                  <span>log out</span>
+               </a>
+
+            </div>
+            <div class = "col-12">
+               <div class = "mobile_menu d-block d-lg-none"></div>
+            </div>
+         </div>
+      </div>
+   </div>
+</div>
+
+<!-- header-end -->

@@ -1,0 +1,54 @@
+<!doctype html>
+<html class = "no-js" lang = "zxx">
+
+<head>
+   <meta charset = "utf-8">
+   <meta http-equiv = "x-ua-compatible" content = "ie=edge">
+
+   <title>{% block title %}Soci{% endblock %}</title>
+
+   <meta name = "description" content = "">
+   <meta name = "viewport" content = "width=device-width, initial-scale=1">
+   <!-- <link rel="manifest" href="site.webmanifest"> -->
+   <link rel = "shortcut icon" type = "image/x-icon" href = "/static/img/favicon.ico">
+   <!-- Place favicon.ico in the root directory -->
+   {% block styles %}
+      {% include 'includes/styles.html' %}
+   {% endblock %}
+</head>
+
+<body>
+
+{% block header %}
+   <header>
+   {% if request.user.is_authenticated %}
+      {% include 'includes/navbar.html' %}
+   {% else %}
+      {% include 'includes/navbar_not_login.html' %}
+   {% endif %}
+   </header>
+{% endblock header%}
+
+{% if messages %}
+{#   <ul class = "messages">#}
+      {% for message in messages %}
+         <li class = "{{ message.tags }}">
+            {{ message|safe }}
+            <a href = "#" class = "close">x</a>
+         </li>
+      {% endfor %}
+{#   </ul>#}
+{% endif %}
+
+{#{% include 'registration/login.html' %}#}
+
+{% block content %}
+{% endblock content%}
+
+
+{% block scripts %}
+   {% include 'includes/scripts.html' %}
+{% endblock scripts%}
+
+</body>
+</html>

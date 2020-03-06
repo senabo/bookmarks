@@ -1,0 +1,55 @@
+{% extends "base.html" %}
+{% block title %}{{ image.title }}{% endblock %}
+{% block content %}
+   <div class = "bradcam_area breadcam_bg overlay2">
+      <h3>{{ image.title }}</h3>
+   </div>
+    <div class = "about_area">
+      <div class = "container">
+         <div class = "row">
+            <div class = "col-xl-12">
+               <div class = "about_title text-center">
+   <img src = "{{ image.image.url }}" class = "image-detail">
+ {% with total_likes=image.users_like.count users_like=image.users_like.all %}
+
+    <div class="image-info">
+      <div>
+        <span class="count">
+         <span class="total">{{ total_likes }}</span>
+         like{{ total_likes|pluralize }}
+        </span>
+      <span class="count">
+{{ total_views }} view{{ total_views|pluralize }}
+</span>
+      <input type="hidden" id="Url" data-url="{% url 'images:like' %}" />
+        <a href="#" data-id="{{ image.id }}" data-action="{% if request.user in users_like %}un{% endif %}like" class="like boxed_btn_green">
+
+          {% if request.user not in users_like %}
+            Like
+          {% else %}
+            Unlike
+          {% endif %}
+        </a>
+      </div>
+         {{ image.description|linebreaks }}
+      </div>
+      <div class = "image-likes">
+         {% for user in image.users_like.all %}
+            <div>
+               {% if  user.profile.photo%}:
+               <img src = "{{ user.profile.photo.url }}">
+               {% endif %}
+               <p>{{ user.first_name }}</p>
+            </div>
+         {% empty %}
+            Nobody likes this image yet.
+         {% endfor %}
+      </div>
+      </div>
+      </div>
+      </div>
+      </div>
+      </div>
+
+   {% endwith %}
+{% endblock %}

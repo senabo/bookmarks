@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+{% block title %}Bookmark an image{% endblock %}
+
+{% block content %}
+    <div class="bradcam_area breadcam_bg overlay2">
+    <form action="." method="post">
+        <div class = "popup_box ">
+         <div class = "popup_inner">
+            <div class = "logo text-center">
+            </div>
+         <h3>Bookmark an image</h3>
+<img src="{{ request.GET.url }}" class="fa-image">
+
+{{ form.as_p }}
+{% csrf_token %}
+{#<input type="submit" value="Bookmark it!">#}
+<button type = "submit" class = "boxed_btn_green">Bookmark it!</button>
+                 </div>
+                     </div>
+</form>
+     </div>
+
+{% endblock %}

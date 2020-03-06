@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% block content %}
+
+   <div class="bradcam_area breadcam_bg overlay2">
+
+   <div class="container">
+
+                <div class="row align-items-center justify-content-center">
+                    <div class="col-xl-9">
+                        <div class="slider_text text-center">
+                                  <h3>Logged out</h3>
+      <p> You have been successfully logged out.
+      You can <a href = '{% url 'login' %}' >log-in again</a></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+{#   #}</div>
+{#   <div class="col-xl-9">#}
+{#   <div class="slider_text text-center">#}
+{#                             <h3>Logged out</h3>#}
+{#      <p> You have been successfully logged out.#}
+{#      You can <a href = "{% url "login" %}">log-in again</a>.</p>#}
+{#                        </div>#}
+{##}
+{#   </div>#}
+
+{% endblock %}

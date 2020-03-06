@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+{% block title %}Dashboard{% endblock %}
+{% block content %}
+   <!-- bradcam_area_start -->
+   <div class = "bradcam_area breadcam_bg overlay2">
+      <h3>Dashboard</h3>
+   </div>
+   <div class = "about_area">
+      <div class = "container">
+         <div class = "row">
+            <div class = "col-xl-12">
+               <div class = "about_title text-center">
+                  {% with total_images_created=request.user.images_created.count %}
+                     <h3>Welcome to your dashboard. You have bookmarked
+                        {{ total_images_created }} image{{ total_images_created|pluralize }}.</h3>
+                  {% endwith %}
+                  <p>Drag the following button to your bookmarks toolbar to bookmark images
+                     from other websites
+                     <a href = "javascript:{% include "images/bookmarklet_launcher.js" %}" class = "boxed_btn_green">
+                        Bookmark it</a>
+                  <p>
+                  <p>You can also <a href = "{% url "edit" %}">edit your profile</a> or
+                     <a href = "{% url "password_change" %}">change your password</a>.
+                  <p></div>
+
+            <h2>What's happening</h2>
+<div id="action-list">
+{% for action in actions %}
+{% include "actions/action/detail.html" %}
+{% endfor %}
+</div>
+
+            </div>
+         </div>
+      </div>
+   </div>
+{% endblock %}
